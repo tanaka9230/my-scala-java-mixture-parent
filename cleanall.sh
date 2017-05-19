@@ -1,15 +1,15 @@
-#!/bin/sh
+#!/bin/bash
 
 # clean projects
 mvn clean eclipse:clean
 
-# clean myself
+# clean this parent-pom project
 rm .project
 rm -R .settings
 
 # clean Eclipse's workspace settings
-CURDIR=`pwd`
 cd ..
 rm -R .metadata
+rm -R .recommenders
+rm -R RemoteSystemsTempFiles
 rm -R Servers
-cd $CURDIR
