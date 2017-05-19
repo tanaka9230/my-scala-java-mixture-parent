@@ -5,8 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <prerequisites>
-        <maven>3.3.1</maven>
+        <maven>3.3.9</maven>
     </prerequisites>
+
+    <organization>
+        <name>Example Corp.</name>
+    </organization>
 
     <groupId>example</groupId>
     <artifactId>my-scala-java-mixture-parent</artifactId>
@@ -21,7 +25,7 @@
                 <test-profile-dir>nop</test-profile-dir>
             </properties>
             <build>
-                <finalName>${project.artifactId}-${project.version}</finalName>
+                <finalName>${project.artifactId}</finalName>
             </build>
         </profile>
         <profile>
@@ -46,6 +50,9 @@
                 <profile-dir>ci</profile-dir>
                 <test-profile-dir>ci</test-profile-dir>
             </properties>
+            <modules>
+                <module>../my-scala-java-mixture-app</module>
+            </modules>
             <build>
                 <finalName>${project.artifactId}-${project.version}</finalName>
             </build>
