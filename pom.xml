@@ -50,9 +50,6 @@
                 <profile-dir>ci</profile-dir>
                 <test-profile-dir>ci</test-profile-dir>
             </properties>
-            <modules>
-                <module>../my-scala-java-mixture-app</module>
-            </modules>
             <build>
                 <finalName>${project.artifactId}-${project.version}</finalName>
             </build>
@@ -99,6 +96,19 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <systemPropertyVariables>
+                        <app.home>${project.build.directory}</app.home>
+                        <app.log>${project.build.directory}/test-log</app.log>
+                    </systemPropertyVariables>
+                    <excludes>
+                        <exclude>javatest/*</exclude>
+                        <exclude>testutil/*</exclude>
+                    </excludes>
+                </configuration>
             </plugin>
         </plugins>
     </build>
